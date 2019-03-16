@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace EmployeesManagement
 {
@@ -27,17 +28,31 @@ namespace EmployeesManagement
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILogger<Startup> logger)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
+            app.Use(async (context,next) =>
+            {
+                logger.LogInformation("MW1, incoming request");
+                await next();
+                logger.LogInformation("MW1, outgoing responds");
+            });
+
+            app.Use(async (context, next) =>
+            {
+                logger.LogInformation("MW2, incoming request");
+                await next();
+                logger.LogInformation("MW2, outgoing responds");
+            });
+
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync(_config["MyKEY"]);
-//                await context.Response.WriteAsync(System.Diagnostics.Process.GetCurrentProcess().ProcessName);
+                await context.Response.WriteAsync("MW3 request handled");
+                logger.LogInformation("MW3, outgoing responds");
             });
 
             app.UseMvc();
