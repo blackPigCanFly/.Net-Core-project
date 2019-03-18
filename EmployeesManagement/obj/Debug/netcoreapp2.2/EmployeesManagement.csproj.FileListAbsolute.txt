@@ -3,7 +3,6 @@ C:\Users\PC\Desktop\All Code\ASP.Net Core Spaces\EmployeesManagement\EmployeesMa
 C:\Users\PC\Desktop\All Code\ASP.Net Core Spaces\EmployeesManagement\EmployeesManagement\bin\Debug\netcoreapp2.2\EmployeesManagement.runtimeconfig.dev.json
 C:\Users\PC\Desktop\All Code\ASP.Net Core Spaces\EmployeesManagement\EmployeesManagement\bin\Debug\netcoreapp2.2\EmployeesManagement.dll
 C:\Users\PC\Desktop\All Code\ASP.Net Core Spaces\EmployeesManagement\EmployeesManagement\bin\Debug\netcoreapp2.2\EmployeesManagement.pdb
-C:\Users\PC\Desktop\All Code\ASP.Net Core Spaces\EmployeesManagement\EmployeesManagement\obj\Debug\netcoreapp2.2\EmployeesManagement.csprojAssemblyReference.cache
 C:\Users\PC\Desktop\All Code\ASP.Net Core Spaces\EmployeesManagement\EmployeesManagement\obj\Debug\netcoreapp2.2\EmployeesManagement.csproj.CoreCompileInputs.cache
 C:\Users\PC\Desktop\All Code\ASP.Net Core Spaces\EmployeesManagement\EmployeesManagement\obj\Debug\netcoreapp2.2\EmployeesManagement.RazorAssemblyInfo.cache
 C:\Users\PC\Desktop\All Code\ASP.Net Core Spaces\EmployeesManagement\EmployeesManagement\obj\Debug\netcoreapp2.2\EmployeesManagement.RazorAssemblyInfo.cs
@@ -12,3 +11,4 @@ C:\Users\PC\Desktop\All Code\ASP.Net Core Spaces\EmployeesManagement\EmployeesMa
 C:\Users\PC\Desktop\All Code\ASP.Net Core Spaces\EmployeesManagement\EmployeesManagement\obj\Debug\netcoreapp2.2\EmployeesManagement.RazorTargetAssemblyInfo.cache
 C:\Users\PC\Desktop\All Code\ASP.Net Core Spaces\EmployeesManagement\EmployeesManagement\obj\Debug\netcoreapp2.2\EmployeesManagement.dll
 C:\Users\PC\Desktop\All Code\ASP.Net Core Spaces\EmployeesManagement\EmployeesManagement\obj\Debug\netcoreapp2.2\EmployeesManagement.pdb
+C:\Users\PC\Desktop\All Code\ASP.Net Core Spaces\EmployeesManagement\EmployeesManagement\obj\Debug\netcoreapp2.2\EmployeesManagement.csprojAssemblyReference.cache

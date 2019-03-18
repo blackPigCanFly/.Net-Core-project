@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Razor.Language.Intermediate;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-
+ 
 namespace EmployeesManagement
 {
     public class Startup
@@ -16,11 +17,6 @@ namespace EmployeesManagement
             _config = config;
         }
 
-//        public Startup(IConfiguration configuration)
-//        {
-//            Configuration = configuration;
-//        }
-
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
@@ -28,34 +24,70 @@ namespace EmployeesManagement
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILogger<Startup> logger)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                DeveloperExceptionPageOptions developerExceptionPageOptions = new DeveloperExceptionPageOptions()
+                {
+                    SourceCodeLineCount = 10
+                };
+                app.UseDeveloperExceptionPage(developerExceptionPageOptions);
             }
 
-            app.Use(async (context,next) =>
-            {
-                logger.LogInformation("MW1, incoming request");
-                await next();
-                logger.LogInformation("MW1, outgoing responds");
-            });
-
-            app.Use(async (context, next) =>
-            {
-                logger.LogInformation("MW2, incoming request");
-                await next();
-                logger.LogInformation("MW2, outgoing responds");
-            });
-
+            // a middleware display "Hello World"
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("MW3 request handled");
-                logger.LogInformation("MW3, outgoing responds");
+                await context.Response.WriteAsync("Hosting environment: " +env.EnvironmentName );
+                throw new Exception("Unhandled exceptions");
+                
             });
 
             app.UseMvc();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //FileServerOptions middleware is combined middleware
+            /*FileServerOptions fileServerOptions = new FileServerOptions();
+            fileServerOptions.DefaultFilesOptions.DefaultFileNames.Clear();
+            fileServerOptions.DefaultFilesOptions.DefaultFileNames.Add("foo.html");
+            app.UseFileServer(fileServerOptions);
+            */
+
+            /*          DefaultFilesOptions middleware serve
+                        DefaultFilesOptions defaultFilesOptions = new DefaultFilesOptions();
+                        defaultFilesOptions.DefaultFileNames.Clear();
+                        defaultFilesOptions.DefaultFileNames.Add("foo.html");
+                        //serve serve default file 
+                        app.UseDefaultFiles(defaultFilesOptions);
+                        //serve static file
+                        app.UseStaticFiles();*/
         }
     }
 }
